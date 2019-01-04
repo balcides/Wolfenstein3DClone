@@ -18,13 +18,8 @@ Assets/Standard Assets (Mobile).meta
 # ===================================== #
 ExportedObj/
 *.svd
-*.userprefs
-*.csproj
 *.pidb
 *.suo
-*.sln
-*.user
-*.unityproj
 *.booproj
 # ============ #
 # OS generated #
