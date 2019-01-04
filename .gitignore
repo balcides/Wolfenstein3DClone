@@ -1,0 +1,51 @@
+# =============== #
+# Unity generated #
+# =============== #
+Temp/
+Obj/
+UnityGenerated/
+Library/
+Build/
+Media/
+Art/
+Sound/
+Game_music/
+Assets/Standard Assets (Mobile)/
+Assets/Standard Assets (Mobile)/Materials/grid.mat
+Assets/Standard Assets (Mobile).meta
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+*.dll
+*.db
+# ============ #
+# Art Assets   #
+# ============ #
+*.psd
+*.tga
+*.fbx
+*.wav
+*.tif
+*.mp3
+*.caf
