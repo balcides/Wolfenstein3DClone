@@ -52,8 +52,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\AssetManager.cs" />
+     <Compile Include="Assets\Scripts\FPSCounter.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GameMechanics.cs" />
+     <Compile Include="Assets\Scripts\HeadBobbing.cs" />
+     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Unit.cs" />
  <Reference Include="UnityEngine.UIAutomation">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
