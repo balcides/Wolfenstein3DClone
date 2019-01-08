@@ -23,7 +23,9 @@ public class HeadBobbing : MonoBehaviour
 	public float bobbingSpeed = 0.18f;
 	public float bobbingHeight = 0.2f;
 	public float midpoint = 1.8f;
+	public bool isHeadBobbing = true;
 	public bool enableHeadBob = true;
+
 
 	//private
 	private float timer = 0.0f;
@@ -82,13 +84,27 @@ public class HeadBobbing : MonoBehaviour
 			totalAxes = Mathf.Clamp (totalAxes, 0.0f, 1.0f);
 			translateChange = totalAxes * translateChange;
 
-			//and adding this to change the camera's midpoint
-			cSharpConversion.y = midpoint + translateChange;
+			//if headbobbing is happening
+			if (isHeadBobbing) {
+				
+				//and adding this to change the camera's midpoint
+				cSharpConversion.y = midpoint + translateChange;
+			
+				//if not, move to x (side to side)
+			} else if (!isHeadBobbing) {
+				cSharpConversion.x = translateChange;
+			}
 
 		} else {
 
-			//otherwise, waveslice is 0, which means we are not moving, so our caemera's position in y is equal to midpoint
-			cSharpConversion.y = midpoint;
+			if (isHeadBobbing) {
+				//otherwise, waveslice is 0, which means we are not moving, so our caemera's position in y is equal to midpoint
+				cSharpConversion.y = midpoint;
+
+			//same handling of waveslice side to side
+			} else if (!isHeadBobbing) {
+				cSharpConversion.x = 0;
+			}
 		}
 
 		//and at the end, set main camera's position to the new position
