@@ -40,11 +40,15 @@ public class Pistol : MonoBehaviour {
 
 			//play fire sound
 			source.PlayOneShot (shotSound);
-			StartCoroutine ("shot");
+			StartCoroutine ("Shot");
 
 			//if ray hits an object
 			if(Physics.Raycast(ray, out hit, pistolRange)){
-				Debug.Log("I've collided with" + hit.collider.gameObject.name);
+				Debug.Log("I've collided with: " + hit.collider.gameObject.name);
+
+				//send message to start a fucntion with a specific command when ray hits surface
+				//passes command for pistol damage on surfaces
+				hit.collider.gameObject.SendMessage("pistorlHit", pistolDamage, SendMessageOptions.DontRequireReceiver);
 			}
 
 
