@@ -19,6 +19,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(AudioSource))]
 public class Pistol : MonoBehaviour {
 
+	public float shootOffset = 3.0f;
 	public Sprite idlePistol;
 	public Sprite shotPistol;
 	public float pistolDamage;
@@ -28,7 +29,7 @@ public class Pistol : MonoBehaviour {
 	public AudioClip reloadSound;
 	public AudioClip emptyGunSound;
 
-	public int ammoAmount;
+	public int ammoAmount = 10;
 	public int ammoClipSize;
 
 	public Text ammoText;
@@ -38,6 +39,8 @@ public class Pistol : MonoBehaviour {
 
 	bool isShot = false;
 	bool isReloading = false;
+
+	public GameObject bulletHole;
 
 
 	void Awake(){
@@ -53,12 +56,12 @@ public class Pistol : MonoBehaviour {
 		ammoText.text = ammoClipLeft + " / " + ammoLefts;
 
 		//fire 
-		if(Input.GetButtonDown("Fire1")){
+		if(Input.GetButtonDown("Fire1") && !isReloading){
 			isShot = true;
 		}
 
 		//reload
-		if (Input.GetKeyDown (KeyCode.R)) {
+		if (Input.GetKeyDown (KeyCode.R) && !isReloading) {
 			Reload ();
 		}
 	}
@@ -66,7 +69,9 @@ public class Pistol : MonoBehaviour {
 
 	void FixedUpdate(){
 
-		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+
+		Vector3 shootPos = new Vector3 (Input.mousePosition.x, Input.mousePosition.y + shootOffset, Input.mousePosition.z);
+		Ray ray = Camera.main.ScreenPointToRay (shootPos);
 		RaycastHit hit; 
 	
 		//when shot is fired
@@ -84,6 +89,7 @@ public class Pistol : MonoBehaviour {
 				//send message to start a fucntion when ray hits surface, passes command for pistol damage on surfaces
 				Debug.Log ("I've collided with: " + hit.collider.gameObject.name);
 				hit.collider.gameObject.SendMessage ("pistorlHit", pistolDamage, SendMessageOptions.DontRequireReceiver);
+				Instantiate (bulletHole, hit.point, Quaternion.FromToRotation (Vector3.up, hit.normal));
 			}
 
 		//if shot and no ammo, reload
