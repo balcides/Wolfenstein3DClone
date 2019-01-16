@@ -70,13 +70,15 @@ public class Pistol : MonoBehaviour {
 	void FixedUpdate(){
 
 
-		Vector3 shootPos = new Vector3 (Input.mousePosition.x, Input.mousePosition.y + shootOffset, Input.mousePosition.z);
-		Ray ray = Camera.main.ScreenPointToRay (shootPos);
+		//Vector3 shootPos = new Vector3 (Input.mousePosition.x, Input.mousePosition.y + shootOffset, Input.mousePosition.z);
+		Ray ray = Camera.main.ScreenPointToRay (new Vector3(Screen.width/2, Screen.height/2,0));
 		RaycastHit hit; 
 	
 		//when shot is fired
 		if (isShot && ammoClipLeft > 0 && !isReloading) {
+
 			isShot = false;
+			DynamicCrosshair.spread += DynamicCrosshair.PISTOL_SHOOTING_SPREAD;
 			ammoClipLeft--;
 
 			//play fire sound
