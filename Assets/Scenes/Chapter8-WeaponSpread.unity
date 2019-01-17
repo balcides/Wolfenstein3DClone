@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 102165647}
   - component: {fileID: 102165649}
   - component: {fileID: 102165648}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leftCross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 116472340}
   - component: {fileID: 116472342}
   - component: {fileID: 116472341}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rightCross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 139330771}
   - component: {fileID: 139330770}
   - component: {fileID: 139330769}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: FPS-counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 418569953}
   - component: {fileID: 418569952}
   - component: {fileID: 418569951}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 989242494}
+  m_Camera: {fileID: 1842861599}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 647609120}
   - component: {fileID: 647609122}
   - component: {fileID: 647609121}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bottomCross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -868,7 +868,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1080453584}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1056,7 +1056,7 @@ GameObject:
   - component: {fileID: 1517732670}
   - component: {fileID: 1517732672}
   - component: {fileID: 1517732671}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AmmoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1261,7 +1261,7 @@ GameObject:
   - component: {fileID: 1786494315}
   - component: {fileID: 1786494317}
   - component: {fileID: 1786494316}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: topCross
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -56,7 +56,7 @@ public class DynamicCrosshair : MonoBehaviour {
 			rightPart.GetComponent<RectTransform> ().localPosition = new Vector3 (initialPosition + spread,0 , 0);
 
 			//spread goes over periord of time
-			spread -= 1;
+			spread -= 100 * Time.deltaTime;
 		}
 	}
 

@@ -69,9 +69,19 @@ public class Pistol : MonoBehaviour {
 
 	void FixedUpdate(){
 
-
+		//original script that shoots from mouse pos to object but it's not as accurate as using screen rez math
 		//Vector3 shootPos = new Vector3 (Input.mousePosition.x, Input.mousePosition.y + shootOffset, Input.mousePosition.z);
-		Ray ray = Camera.main.ScreenPointToRay (new Vector3(Screen.width/2, Screen.height/2,0));
+
+		//saved position for shooting dead center without spread
+		Vector3 deadCenter = new Vector3(Screen.width/2, Screen.height/2,0);
+
+		//chooses a random point within a 2D circle (super handy) and then usses or crosshair spread as a value for it's radius
+		Vector2 bulletOffset = Random.insideUnitCircle * DynamicCrosshair.spread;
+
+		//spread position
+		Vector3 randomTarget = new Vector3(deadCenter.x + bulletOffset.x, deadCenter.y + bulletOffset.y, 0);
+			
+		Ray ray = Camera.main.ScreenPointToRay (randomTarget);
 		RaycastHit hit; 
 	
 		//when shot is fired
