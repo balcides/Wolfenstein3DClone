@@ -53,6 +53,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AssetManager.cs" />
      <Compile Include="Assets\Scripts\DynamicCrosshair.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Enemies\SkullMonster.cs" />
+     <Compile Include="Assets\Scripts\FaceCamera.cs" />
      <Compile Include="Assets\Scripts\FPSCounter.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GameMechanics.cs" />
