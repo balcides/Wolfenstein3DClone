@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour {
 	float sidewaysMovement;
 	float verticalVelocity;
 
+
 	CharacterController cc;
 	float verticalRotation = 0;
 

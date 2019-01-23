@@ -51,15 +51,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AlertState.cs" />
      <Compile Include="Assets\Scripts\AssetManager.cs" />
+     <Compile Include="Assets\Scripts\AttackState.cs" />
+     <Compile Include="Assets\Scripts\ChaseState.cs" />
      <Compile Include="Assets\Scripts\DynamicCrosshair.cs" />
      <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
      <Compile Include="Assets\Scripts\Enemies\SkullMonster.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI.cs" />
+     <Compile Include="Assets\Scripts\EnemyStates.cs" />
      <Compile Include="Assets\Scripts\FaceCamera.cs" />
      <Compile Include="Assets\Scripts\FPSCounter.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GameMechanics.cs" />
      <Compile Include="Assets\Scripts\HeadBobbing.cs" />
+     <Compile Include="Assets\Scripts\PatrolState.cs" />
      <Compile Include="Assets\Scripts\Pistol.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Unit.cs" />

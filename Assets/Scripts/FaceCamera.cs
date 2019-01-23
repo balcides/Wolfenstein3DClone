@@ -19,6 +19,7 @@ using UnityEngine;
 public class FaceCamera : MonoBehaviour {
 
 	Vector3 cameraDirection;
+	public float yOffset;
 
 	// Update is called once per frame
 	void Update () {
