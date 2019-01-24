@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\DynamicCrosshair.cs" />
      <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
      <Compile Include="Assets\Scripts\Enemies\SkullMonster.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Vision.cs" />
      <Compile Include="Assets\Scripts\EnemyAI.cs" />
      <Compile Include="Assets\Scripts\EnemyStates.cs" />
      <Compile Include="Assets\Scripts\FaceCamera.cs" />

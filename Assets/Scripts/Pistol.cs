@@ -101,7 +101,9 @@ public class Pistol : MonoBehaviour {
 				//send message to start a fucntion when ray hits surface, passes command for pistol damage on surfaces
 				Debug.Log ("I've collided with: " + hit.collider.gameObject.name);
 				hit.collider.gameObject.SendMessage ("PistolHit", pistolDamage, SendMessageOptions.DontRequireReceiver);
-				Instantiate (bulletHole, hit.point, Quaternion.FromToRotation (Vector3.up, hit.normal));
+
+				//create bullethole and parent to collided object's position so it sticks
+				Instantiate (bulletHole, hit.point, Quaternion.FromToRotation (Vector3.up, hit.normal)).transform.parent = hit.collider.gameObject.transform;
 			}
 
 		//if shot and no ammo, reload

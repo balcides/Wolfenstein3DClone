@@ -7,6 +7,8 @@ public class EnemyStates : MonoBehaviour {
 
 	public Transform[] waypoints;	//for patrol
 	public int patrolRange;
+	public int attackRange = 1;
+	public Transform vision;
 
 	[HideInInspector] public AlertState alertState;
 	[HideInInspector] public AttackState attackState;
@@ -14,8 +16,8 @@ public class EnemyStates : MonoBehaviour {
 	[HideInInspector] public PatrolState patrolState;
 	[HideInInspector] public EnemyAI currentState;
 	[HideInInspector] public NavMeshAgent navMeshAgent;
-
-	public Transform chaseTarget;
+	[HideInInspector] public Vector3 lastKnownPosition;
+	[HideInInspector] public Transform chaseTarget = null;
 
 
 
