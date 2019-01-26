@@ -97,9 +97,16 @@ public class Pistol : MonoBehaviour {
 
 			//if ray hits an object
 			if (Physics.Raycast (ray, out hit, pistolRange)) {
+				if (hit.collider.gameObject.GetComponent<EnemyStates> ().currentState == hit.collider.gameObject.GetComponent<EnemyStates> ().patrolState ||
+				   hit.collider.gameObject.GetComponent<EnemyStates> ().currentState == hit.collider.gameObject.GetComponent<EnemyStates> ().alertState) {
+
+					Debug.Log ("hidden shot called");
+					hit.collider.gameObject.SendMessage ("HiddenShot", transform.parent.transform.position, SendMessageOptions.DontRequireReceiver);
+				}
 
 				//send message to start a fucntion when ray hits surface, passes command for pistol damage on surfaces
 				Debug.Log ("I've collided with: " + hit.collider.gameObject.name);
+
 				hit.collider.gameObject.SendMessage ("PistolHit", pistolDamage, SendMessageOptions.DontRequireReceiver);
 
 				//create bullethole and parent to collided object's position so it sticks

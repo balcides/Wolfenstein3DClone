@@ -9,6 +9,7 @@ public class EnemyStates : MonoBehaviour {
 	public int patrolRange;
 	public int attackRange = 1;
 	public Transform vision;
+	public float stayAlertTime;
 
 	[HideInInspector] public AlertState alertState;
 	[HideInInspector] public AttackState attackState;
@@ -40,6 +41,8 @@ public class EnemyStates : MonoBehaviour {
 
 		//calls update actions of main enemyAI interface
 		currentState.UpdateActions ();
+
+		Debug.Log ("Enemy State = " + currentState);
 		
 	}
 
@@ -47,5 +50,12 @@ public class EnemyStates : MonoBehaviour {
 		
 		//calls trigger state from main EnemyAI interface
 		currentState.OnTriggerEnter (otherObj);
+	}
+
+	void HiddenShot(Vector3 shotPosition){
+		Debug.Log ("someone is shot");
+		lastKnownPosition = shotPosition;
+		currentState = alertState;
+		
 	}
 }
