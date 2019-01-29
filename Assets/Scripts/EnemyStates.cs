@@ -7,9 +7,21 @@ public class EnemyStates : MonoBehaviour {
 
 	public Transform[] waypoints;	//for patrol
 	public int patrolRange;
+	public int shootRange;
 	public int attackRange = 1;
 	public Transform vision;
 	public float stayAlertTime;
+
+	public GameObject missle;
+	public float missileDamage;
+	public float missileSpeed;
+
+	public bool onlyMelee = false;
+	public float meleeDamage;
+	public float attackDelay;
+
+	public LayerMask raycastMask;
+
 
 	[HideInInspector] public AlertState alertState;
 	[HideInInspector] public AttackState attackState;

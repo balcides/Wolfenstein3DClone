@@ -62,12 +62,15 @@
      <Compile Include="Assets\Scripts\EnemyAI.cs" />
      <Compile Include="Assets\Scripts\EnemyStates.cs" />
      <Compile Include="Assets\Scripts\FaceCamera.cs" />
+     <Compile Include="Assets\Scripts\FlashScreen.cs" />
      <Compile Include="Assets\Scripts\FPSCounter.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GameMechanics.cs" />
      <Compile Include="Assets\Scripts\HeadBobbing.cs" />
+     <Compile Include="Assets\Scripts\Missile.cs" />
      <Compile Include="Assets\Scripts\PatrolState.cs" />
      <Compile Include="Assets\Scripts\Pistol.cs" />
+     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Unit.cs" />
  <Reference Include="UnityEngine.UIAutomation">
