@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 
 /*
 
@@ -18,21 +18,37 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-	public int health;
-	public bool canMelleeAttack;
-	public bool canShoot;
-	public float meleeDamage;
-	public float shootDamage;
+	public Sprite deadBody;
+	public int maxHealth;
+	public float health;
 
+	EnemyStates es;
+	NavMeshAgent nma;
+	SpriteRenderer sr;
+	BoxCollider bc;
 
-	public void PistolHit(int damage){
-	/*
-
-		React script with any hit from raycast in Pisol.cs
-		Runs any action to happen when we shoot enemy
-
-	*/
-		Debug.Log("I got hit! " + damage);
+	private void Start(){
+		health = maxHealth;
+		es = GetComponent<EnemyStates> ();
+		nma = GetComponent<NavMeshAgent> ();
+		sr = GetComponent<SpriteRenderer> ();
+		bc = GetComponent<BoxCollider> ();
 	}
+
+	void PistolHit(float damage){
+		health -= damage;
+	}
+
+	private void Update(){
+		if (health <= 0) {
+			es.enabled = false;
+			nma.enabled = false;
+			sr.sprite = deadBody;
+			bc.center = new Vector3 (0, -0.8f, 0);
+			bc.size = new Vector3 (1.05f, -0.43f, 0.2f);
+		}
+	}
+
+	
 
 }

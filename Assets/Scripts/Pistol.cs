@@ -19,6 +19,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(AudioSource))]
 public class Pistol : MonoBehaviour {
 
+	public GameObject bloodSplat;
 	public float shootOffset = 3.0f;
 	public Sprite idlePistol;
 	public Sprite shotPistol;
@@ -99,10 +100,12 @@ public class Pistol : MonoBehaviour {
 			if (Physics.Raycast (ray, out hit, pistolRange)) {
 
 				//if we hit the enemy, run collider patrol and damage script
-				if(hit.transform.CompareTag("Enemy")){
+				if (hit.transform.CompareTag ("Enemy")) {
+
+					Instantiate (bloodSplat, hit.point, Quaternion.identity);
 
 					if (hit.collider.gameObject.GetComponent<EnemyStates> ().currentState == hit.collider.gameObject.GetComponent<EnemyStates> ().patrolState ||
-					   hit.collider.gameObject.GetComponent<EnemyStates> ().currentState == hit.collider.gameObject.GetComponent<EnemyStates> ().alertState) {
+					    hit.collider.gameObject.GetComponent<EnemyStates> ().currentState == hit.collider.gameObject.GetComponent<EnemyStates> ().alertState) {
 
 						Debug.Log ("hidden shot called");
 						hit.collider.gameObject.SendMessage ("HiddenShot", transform.parent.transform.position, SendMessageOptions.DontRequireReceiver);
@@ -112,10 +115,14 @@ public class Pistol : MonoBehaviour {
 					Debug.Log ("I've collided with: " + hit.collider.gameObject.name);
 
 					hit.collider.gameObject.SendMessage ("PistolHit", pistolDamage, SendMessageOptions.DontRequireReceiver);
+
+				} else {
+					
+					//create bullethole and parent to collided object's position so it sticks
+					Instantiate (bulletHole, hit.point, Quaternion.FromToRotation (Vector3.up, hit.normal)).transform.parent = hit.collider.gameObject.transform;
 				}
 
-				//create bullethole and parent to collided object's position so it sticks
-				Instantiate (bulletHole, hit.point, Quaternion.FromToRotation (Vector3.up, hit.normal)).transform.parent = hit.collider.gameObject.transform;
+
 			}
 
 		//if shot and no ammo, reload
