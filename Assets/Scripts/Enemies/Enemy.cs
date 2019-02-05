@@ -34,11 +34,7 @@ public class Enemy : MonoBehaviour {
 		sr = GetComponent<SpriteRenderer> ();
 		bc = GetComponent<BoxCollider> ();
 	}
-
-	void PistolHit(float damage){
-		health -= damage;
-	}
-
+		
 	private void Update(){
 		if (health <= 0) {
 			es.enabled = false;
@@ -49,6 +45,9 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
-	
+	void AddDamage(float damage){
+		health -= damage;
+	}
+
 
 }
