@@ -51,6 +51,9 @@ public class Pistol : MonoBehaviour {
 		ammoClipLeft = ammoClipSize;
 	}
 
+	private void OnEnable(){
+		isReloading = false;
+	}
 
 	void Update(){
 

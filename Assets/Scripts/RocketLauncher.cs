@@ -31,6 +31,7 @@ public class RocketLauncher : MonoBehaviour {
 	bool isShot;
 
 	int rocketInChamber;
+	GameObject crosshair;
 
 
 	// Use this for initialization
@@ -38,6 +39,17 @@ public class RocketLauncher : MonoBehaviour {
 		source = GetComponent<AudioSource> ();
 		rocketsLeft = rocketsAmount;
 		
+	}
+
+	private void OnEnable(){
+		isReloading = false;
+		crosshair = GameObject.Find ("Crosshair");
+		crosshair.SetActive (false);
+
+	}
+
+	private void OnDisable(){
+		crosshair.SetActive (true);
 	}
 	
 	// Update is called once per frame
