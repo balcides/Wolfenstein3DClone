@@ -8,8 +8,6 @@ public class Explosion : MonoBehaviour {
 	[HideInInspector]public AudioClip explosionSound;
 	AudioSource source;
 
-	//only temporarily removed the object after the animation
-	float lifespan;
 
 
 
@@ -21,12 +19,5 @@ public class Explosion : MonoBehaviour {
 	private void Start(){
 		source.PlayOneShot (explosionSound);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		lifespan += Time.deltaTime;
-		if (lifespan > 2) {
-			Destroy (this.gameObject);
-		}
-	}
+
 }

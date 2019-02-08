@@ -65,7 +65,7 @@ public class Pistol : MonoBehaviour {
 		}
 
 		//reload
-		if (Input.GetKeyDown (KeyCode.R) && !isReloading) {
+		if (Input.GetKeyDown (KeyCode.R) && !isReloading && ammoClipLeft != ammoClipSize) {
 			Reload ();
 		}
 	}

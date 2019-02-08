@@ -27,7 +27,7 @@ public class RocketLauncher : MonoBehaviour {
 	AudioSource source;
 
 	bool isReloading;
-	bool isCharged;
+	bool isCharged = true;
 	bool isShot;
 
 	int rocketInChamber;

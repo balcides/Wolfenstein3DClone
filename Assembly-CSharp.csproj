@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\AssetManager.cs" />
      <Compile Include="Assets\Scripts\AttackState.cs" />
      <Compile Include="Assets\Scripts\ChaseState.cs" />
+     <Compile Include="Assets\Scripts\DeleteAfterAnimation.cs" />
      <Compile Include="Assets\Scripts\DynamicCrosshair.cs" />
      <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
      <Compile Include="Assets\Scripts\Enemies\SkullMonster.cs" />
