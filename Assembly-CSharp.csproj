@@ -76,6 +76,7 @@
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Rocket.cs" />
      <Compile Include="Assets\Scripts\RocketLauncher.cs" />
+     <Compile Include="Assets\Scripts\StaticBillboardChange.cs" />
      <Compile Include="Assets\Scripts\Unit.cs" />
      <Compile Include="Assets\Scripts\WeaponSwitch.cs" />
  <Reference Include="UnityEngine.UIAutomation">
