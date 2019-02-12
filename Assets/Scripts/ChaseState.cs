@@ -19,14 +19,7 @@ public class ChaseState : EnemyAI{
 
 	void Watch(){
 		
-		RaycastHit hit;
-		if (Physics.Raycast (enemy.transform.position, enemy.vision.forward, out hit, enemy.patrolRange, enemy.raycastMask) && hit.collider.CompareTag ("Player")){ 
-			enemy.chaseTarget = hit.transform;
-
-			//when enemy hits player on raycast, update last known position
-			enemy.lastKnownPosition = hit.transform.position;
-
-		} else {
+		if (!enemy.EnemySpotted ()) {
 			ToAlertState ();
 		}
 	}

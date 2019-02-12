@@ -21,11 +21,8 @@ public class AlertState : EnemyAI {
 	}
 
 	void Watch(){
-		RaycastHit hit;
-		if (Physics.Raycast (enemy.transform.position, enemy.vision.forward, out hit, enemy.patrolRange) &&
-			hit.collider.CompareTag("Player")) {
-			enemy.chaseTarget = hit.transform;
-			enemy.navMeshAgent.destination = hit.transform.position;
+		if(enemy.EnemySpotted()){
+			enemy.navMeshAgent.destination = enemy.lastKnownPosition;
 			ToChaseState ();
 		}
 	}

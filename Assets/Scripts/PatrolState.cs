@@ -18,17 +18,12 @@ public class PatrolState : EnemyAI{
 	}
 
 	void Watch(){
-		RaycastHit hit; 
 
-		//if the raycast hit from enemy forward
-		if (Physics.Raycast (enemy.transform.position, -enemy.transform.forward, out hit, enemy.patrolRange)) {
-			if (hit.collider.CompareTag ("Player")) {
-				
-				//enemy.chaseTarget = hit.transform; 
-				Debug.Log(enemy.name + " Enemy hits player target on patrol! " + hit.collider.name);
-				ToChaseState ();
-			}
+		if (enemy.EnemySpotted ()) {
+			Debug.Log ("I noticed the enemy");
+			ToChaseState ();
 		}
+
 	}
 
 	void Patrol(){
