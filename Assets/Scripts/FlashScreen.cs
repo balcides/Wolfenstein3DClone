@@ -26,4 +26,8 @@ public class FlashScreen : MonoBehaviour {
 	public void TookDamage(){
 		flashScreen.color = new Color (1, 0, 0, 0.8f);
 	}
+
+	public void PickedUpBonus(){
+		flashScreen.color = new Color (0, 0, 1, 0.8f);
+	}
 }

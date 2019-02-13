@@ -35,7 +35,7 @@ public class Pistol : MonoBehaviour {
 
 	public Text ammoText;
 
-	int ammoLefts;
+	int ammoLeft;
 	int ammoClipLeft;
 
 	bool isShot = false;
@@ -47,7 +47,7 @@ public class Pistol : MonoBehaviour {
 	void Awake(){
 
 		source = GetComponent<AudioSource> ();
-		ammoLefts = ammoAmount;
+		ammoLeft = ammoAmount;
 		ammoClipLeft = ammoClipSize;
 	}
 
@@ -57,7 +57,7 @@ public class Pistol : MonoBehaviour {
 
 	void Update(){
 
-		ammoText.text = ammoClipLeft + " / " + ammoLefts;
+		ammoText.text = ammoClipLeft + " / " + ammoLeft;
 
 		//fire 
 		if(Input.GetButtonDown("Fire1") && !isReloading){
@@ -145,17 +145,17 @@ public class Pistol : MonoBehaviour {
 		
 		int bulletsToReload = ammoClipSize - ammoClipLeft;
 
-		if (ammoLefts >= bulletsToReload) {
+		if (ammoLeft >= bulletsToReload) {
 			StartCoroutine ("ReloadWeapon");
-			ammoLefts -= bulletsToReload;
+			ammoLeft -= bulletsToReload;
 			ammoClipLeft = ammoClipSize;
 
-		} else if (ammoLefts < bulletsToReload && ammoLefts > 0) {
+		} else if (ammoLeft < bulletsToReload && ammoLeft > 0) {
 			StartCoroutine ("ReloadWeapon");
-			ammoClipLeft += ammoLefts;
-			ammoLefts = 0;
+			ammoClipLeft += ammoLeft;
+			ammoLeft = 0;
 
-		} else if (ammoLefts <= 0) {
+		} else if (ammoLeft <= 0) {
 			source.PlayOneShot (emptyGunSound);
 		}
 	}
@@ -188,6 +188,8 @@ public class Pistol : MonoBehaviour {
 		GetComponent<SpriteRenderer>().sprite = idlePistol;
 	}
 
-
+	public void AddAmmo(int value){
+		ammoLeft += value;
+	}
 	
 }
