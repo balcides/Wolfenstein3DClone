@@ -19,6 +19,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(AudioSource))]
 public class Pistol : MonoBehaviour {
 
+	public GameObject bloodSplat;
 	public float shootOffset = 3.0f;
 	public Sprite idlePistol;
 	public Sprite shotPistol;
@@ -34,7 +35,7 @@ public class Pistol : MonoBehaviour {
 
 	public Text ammoText;
 
-	int ammoLefts;
+	int ammoLeft;
 	int ammoClipLeft;
 
 	bool isShot = false;
@@ -46,14 +47,17 @@ public class Pistol : MonoBehaviour {
 	void Awake(){
 
 		source = GetComponent<AudioSource> ();
-		ammoLefts = ammoAmount;
+		ammoLeft = ammoAmount;
 		ammoClipLeft = ammoClipSize;
 	}
 
+	private void OnEnable(){
+		isReloading = false;
+	}
 
 	void Update(){
 
-		ammoText.text = ammoClipLeft + " / " + ammoLefts;
+		ammoText.text = ammoClipLeft + " / " + ammoLeft;
 
 		//fire 
 		if(Input.GetButtonDown("Fire1") && !isReloading){
@@ -61,7 +65,7 @@ public class Pistol : MonoBehaviour {
 		}
 
 		//reload
-		if (Input.GetKeyDown (KeyCode.R) && !isReloading) {
+		if (Input.GetKeyDown (KeyCode.R) && !isReloading && ammoClipLeft != ammoClipSize) {
 			Reload ();
 		}
 	}
@@ -99,10 +103,12 @@ public class Pistol : MonoBehaviour {
 			if (Physics.Raycast (ray, out hit, pistolRange)) {
 
 				//if we hit the enemy, run collider patrol and damage script
-				if(hit.transform.CompareTag("Enemy")){
+				if (hit.transform.CompareTag ("Enemy")) {
+
+					Instantiate (bloodSplat, hit.point, Quaternion.identity);
 
 					if (hit.collider.gameObject.GetComponent<EnemyStates> ().currentState == hit.collider.gameObject.GetComponent<EnemyStates> ().patrolState ||
-					   hit.collider.gameObject.GetComponent<EnemyStates> ().currentState == hit.collider.gameObject.GetComponent<EnemyStates> ().alertState) {
+					    hit.collider.gameObject.GetComponent<EnemyStates> ().currentState == hit.collider.gameObject.GetComponent<EnemyStates> ().alertState) {
 
 						Debug.Log ("hidden shot called");
 						hit.collider.gameObject.SendMessage ("HiddenShot", transform.parent.transform.position, SendMessageOptions.DontRequireReceiver);
@@ -111,11 +117,15 @@ public class Pistol : MonoBehaviour {
 					//send message to start a fucntion when ray hits surface, passes command for pistol damage on surfaces
 					Debug.Log ("I've collided with: " + hit.collider.gameObject.name);
 
-					hit.collider.gameObject.SendMessage ("PistolHit", pistolDamage, SendMessageOptions.DontRequireReceiver);
+					hit.collider.gameObject.SendMessage ("AddDamage", pistolDamage, SendMessageOptions.DontRequireReceiver);
+
+				} else {
+					
+					//create bullethole and parent to collided object's position so it sticks
+					Instantiate (bulletHole, hit.point, Quaternion.FromToRotation (Vector3.up, hit.normal)).transform.parent = hit.collider.gameObject.transform;
 				}
 
-				//create bullethole and parent to collided object's position so it sticks
-				Instantiate (bulletHole, hit.point, Quaternion.FromToRotation (Vector3.up, hit.normal)).transform.parent = hit.collider.gameObject.transform;
+
 			}
 
 		//if shot and no ammo, reload
@@ -135,17 +145,17 @@ public class Pistol : MonoBehaviour {
 		
 		int bulletsToReload = ammoClipSize - ammoClipLeft;
 
-		if (ammoLefts >= bulletsToReload) {
+		if (ammoLeft >= bulletsToReload) {
 			StartCoroutine ("ReloadWeapon");
-			ammoLefts -= bulletsToReload;
+			ammoLeft -= bulletsToReload;
 			ammoClipLeft = ammoClipSize;
 
-		} else if (ammoLefts < bulletsToReload && ammoLefts > 0) {
+		} else if (ammoLeft < bulletsToReload && ammoLeft > 0) {
 			StartCoroutine ("ReloadWeapon");
-			ammoClipLeft += ammoLefts;
-			ammoLefts = 0;
+			ammoClipLeft += ammoLeft;
+			ammoLeft = 0;
 
-		} else if (ammoLefts <= 0) {
+		} else if (ammoLeft <= 0) {
 			source.PlayOneShot (emptyGunSound);
 		}
 	}
@@ -178,6 +188,8 @@ public class Pistol : MonoBehaviour {
 		GetComponent<SpriteRenderer>().sprite = idlePistol;
 	}
 
-
+	public void AddAmmo(int value){
+		ammoLeft += value;
+	}
 	
 }

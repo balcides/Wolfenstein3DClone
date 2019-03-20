@@ -19,14 +19,7 @@ public class ChaseState : EnemyAI{
 
 	void Watch(){
 		
-		RaycastHit hit;
-		if (Physics.Raycast (enemy.transform.position, enemy.vision.forward, out hit, enemy.patrolRange, enemy.raycastMask) && hit.collider.CompareTag ("Player")){ 
-			enemy.chaseTarget = hit.transform;
-
-			//when enemy hits player on raycast, update last known position
-			enemy.lastKnownPosition = hit.transform.position;
-
-		} else {
+		if (!enemy.EnemySpotted ()) {
 			ToAlertState ();
 		}
 	}
@@ -44,14 +37,14 @@ public class ChaseState : EnemyAI{
 		if (enemy.navMeshAgent.remainingDistance <= enemy.attackRange && enemy.onlyMelee == true) {
 
 			//attack!
-			enemy.navMeshAgent.Stop ();
+			enemy.navMeshAgent.isStopped = true;
 			ToAttackState (); 				
 
 		//else if enemy's distance is less or equal to it's shoot range and enemy is not melee only
 		} else if(enemy.navMeshAgent.remainingDistance <= enemy.shootRange && enemy.onlyMelee == false){
 
 			//attack!
-			enemy.navMeshAgent.Stop ();
+			enemy.navMeshAgent.isStopped = true;
 			ToAttackState ();
 		}
 	}

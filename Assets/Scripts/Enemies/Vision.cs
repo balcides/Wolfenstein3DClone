@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class Vision : MonoBehaviour {
 
-	Transform player;
+	Vector3 destination;
 
-	// Use this for initialization
-	void Start () {
 
-		player = GameObject.FindGameObjectWithTag ("Player").transform;
-		
-	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		transform.LookAt (player);
+
+		destination = transform.parent.GetComponent<EnemyStates> ().navMeshAgent.destination;
+		transform.LookAt (destination);
+
+
 		
 	}
 }

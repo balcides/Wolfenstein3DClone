@@ -13,6 +13,7 @@ Game_music/
 Assets/Standard Assets (Mobile)/
 Assets/Standard Assets (Mobile)/Materials/grid.mat
 Assets/Standard Assets (Mobile).meta
+Assets/ProCore/
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
@@ -44,3 +45,5 @@ Thumbs.db
 *.tif
 *.mp3
 *.caf
+*.png
+*.pdf

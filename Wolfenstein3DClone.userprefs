@@ -4,6 +4,7 @@
     <Files>
       <File FileName="Assets/Scripts/AssetManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/PlayerMovement.cs" Line="1" Column="1" />
+<<<<<<< HEAD
       <File FileName="Assets/Scripts/PatrolState.cs" Line="46" Column="66" />
       <File FileName="Assets/Scripts/AttackState.cs" Line="52" Column="117" />
       <File FileName="Assets/Scripts/AlertState.cs" Line="1" Column="1" />
@@ -12,6 +13,13 @@
       <File FileName="Assets/Scripts/FlashScreen.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Missile.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/PlayerHealth.cs" Line="24" Column="37" />
+=======
+      <File FileName="Assets/Scripts/PatrolState.cs" Line="46" Column="1" />
+      <File FileName="Assets/Scripts/AttackState.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/AlertState.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ChaseState.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/EnemyStates.cs" Line="1" Column="1" />
+>>>>>>> first-playable
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

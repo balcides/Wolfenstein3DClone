@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 54939210582899352}
   - component: {fileID: 65479172905207160}
   - component: {fileID: 114439095164453268}
+  - component: {fileID: 95681499021419116}
   m_Layer: 10
   m_Name: Missile
   m_TagString: Untagged
@@ -71,6 +72,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4395401, y: 0.41968238, z: 0.2}
   m_Center: {x: -0.0015124381, y: 0.00011467934, z: 0}
+--- !u!95 &95681499021419116
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1738793819587840}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7dc5072c0a0fc46fda2501c4363c9f2c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!108 &108987747052376016
 Light:
   m_ObjectHideFlags: 1

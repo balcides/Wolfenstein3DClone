@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour {
 	public float verticalCursorSensitivty = 10f;
 	public float horiztonalCursorSensitivty = 1f;
 	public float verticalRotationLimit = 80;
+	public AudioClip pickupSound;
+	public FlashScreen flash;
 
 	public bool lockCursor;
 	float forwardMovement;
@@ -32,17 +34,20 @@ public class PlayerMovement : MonoBehaviour {
 
 
 	CharacterController cc;
+	AudioSource source;
 	float verticalRotation = 0;
 
 	void Awake(){
 
 		//locks cursor at start of game
-		lockCursor = true;
+		//lockCursor = true;
 		cc = GetComponent<CharacterController> ();
-		Cursor.visible = false;
+		source = GetComponent<AudioSource> ();
+
 
 		if (lockCursor) {
 			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
 		}
 
 	}
@@ -131,6 +136,28 @@ public class PlayerMovement : MonoBehaviour {
 		Vector3 playerMovement = new Vector3 (sidewaysMovement, verticalVelocity, forwardMovement);
 		cc.Move (transform.rotation * playerMovement * Time.deltaTime);
 
+	}
+
+	private void OnTriggerEnter(Collider other){
+		Debug.Log ("I'm hitting something...other=" + other);
+
+		if (other.CompareTag ("HpBonus")) {
+			GetComponent<PlayerHealth> ().AddHealth (20);
+
+		} else if (other.CompareTag ("ArmorBonus")) {
+			Debug.Log ("got armor");
+			GetComponent<PlayerHealth> ().AddArmor (50);
+
+		} else if (other.CompareTag ("AmmoBonus")) {
+			transform.Find ("Weapons").Find ("PistolHand").GetComponent<Pistol> ().AddAmmo (15);
+		}
+
+		if (other.CompareTag ("HpBonus") || other.CompareTag ("ArmorBonus") || other.CompareTag ("AmmoBonus")) {
+			flash.PickedUpBonus ();
+			source.PlayOneShot (pickupSound);
+			Destroy (other.gameObject);
+
+		}
 	}
 
 }
