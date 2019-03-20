@@ -40,13 +40,14 @@ public class PlayerMovement : MonoBehaviour {
 	void Awake(){
 
 		//locks cursor at start of game
-		lockCursor = true;
+		//lockCursor = true;
 		cc = GetComponent<CharacterController> ();
 		source = GetComponent<AudioSource> ();
-		Cursor.visible = false;
+
 
 		if (lockCursor) {
 			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
 		}
 
 	}

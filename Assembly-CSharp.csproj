@@ -68,6 +68,7 @@
      <Compile Include="Assets\Scripts\AssetManager.cs" />
      <Compile Include="Assets\Scripts\AttackState.cs" />
      <Compile Include="Assets\Scripts\ChaseState.cs" />
+     <Compile Include="Assets\Scripts\DeathScreen.cs" />
      <Compile Include="Assets\Scripts\DeleteAfterAnimation.cs" />
      <Compile Include="Assets\Scripts\DoorScript.cs" />
      <Compile Include="Assets\Scripts\DynamicBillboardChange.cs" />
