@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour {
 	public AudioClip hit;
 	public FlashScreen flash;
 	AudioSource source;
+	bool isGameOver = false;
 	[SerializeField] float armor;
 	[SerializeField] float health;
 
@@ -25,6 +26,12 @@ public class PlayerHealth : MonoBehaviour {
 	private void Update(){
 		armor = Mathf.Clamp (armor, 0, maxArmor);
 		health = Mathf.Clamp (health, -Mathf.Infinity, maxHealth);
+
+		if (health <= 0 && !isGameOver) {
+			print ("gameover");
+			isGameOver = true;
+			GameManager.Instance.PlayerDeath ();
+		}
 
 	}
 
