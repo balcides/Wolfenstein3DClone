@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wolfenstein3DClone", "Assembly-CSharp.csproj", "{259143AA-7F64-B5E3-5086-0CD6590018BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wolfenstein3DClone", "Assembly-CSharp-Editor.csproj", "{1A220A37-7331-B638-2E47-5B8714900E1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{259143AA-7F64-B5E3-5086-0CD6590018BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{259143AA-7F64-B5E3-5086-0CD6590018BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{259143AA-7F64-B5E3-5086-0CD6590018BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A220A37-7331-B638-2E47-5B8714900E1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A220A37-7331-B638-2E47-5B8714900E1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A220A37-7331-B638-2E47-5B8714900E1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A220A37-7331-B638-2E47-5B8714900E1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

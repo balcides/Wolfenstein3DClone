@@ -11,6 +11,7 @@ public class EnemyStates : MonoBehaviour {
 	public int attackRange = 1;
 	public Transform vision;
 	public float stayAlertTime;
+	public float viewAngle;
 
 	public GameObject missle;
 	public float missileDamage;
@@ -69,5 +70,24 @@ public class EnemyStates : MonoBehaviour {
 		lastKnownPosition = shotPosition;
 		currentState = alertState;
 		
+	}
+
+	public bool EnemySpotted(){
+		Vector3 direction = GameObject.FindWithTag ("Player").transform.position - transform.position;
+		float angle = Vector3.Angle (direction, vision.forward);
+
+		if (angle < viewAngle * 0.5f) {
+			RaycastHit hit;
+
+			if (Physics.Raycast (vision.transform.position, direction.normalized, out hit, patrolRange, raycastMask)) {
+				if (hit.collider.CompareTag ("Player")) {
+					chaseTarget = hit.transform;
+					lastKnownPosition = hit.transform.position;
+					return true;
+				}
+			}
+		}
+		//might need to put this in else statement or defaul in header, we shaa see
+		return false;
 	}
 }

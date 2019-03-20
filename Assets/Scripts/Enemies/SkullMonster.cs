@@ -24,6 +24,6 @@ public class SkullMonster : Enemy {
 
 	*/
 		//print ("We hit SkullMonster! " + damage);
-		health = health - damage;
+		//health = health - damage;
 	}
 }
