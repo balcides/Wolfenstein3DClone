@@ -39,19 +39,22 @@ public class GameManager : MonoBehaviour {
 			Destroy (gameObject);
 			return;
 		}
-		DontDestroyOnLoad (this);
+
+		//keeps the level with script running but messes with player death sequence and menu
+		//DontDestroyOnLoad (this);
 		InitGame ();
 
 	}
 
 	private void Start(){
 		deathScreen = transform.Find ("DeathScreen").gameObject;
+		deathScreen.SetActive (false);
 	}
 
 
 	void InitGame(){
 		
-		//taken from PlayerMovement
+		//taken from PlayerMovement but messes with player movement settings
 		//Cursor.lockState = CursorLockMode.Locked;
 		//Cursor.visible = false;
 	}

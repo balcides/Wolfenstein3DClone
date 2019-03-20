@@ -1,25 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ChaseState.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/AssetManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="1" Column="1" />
-<<<<<<< HEAD
-      <File FileName="Assets/Scripts/PatrolState.cs" Line="46" Column="66" />
-      <File FileName="Assets/Scripts/AttackState.cs" Line="52" Column="117" />
-      <File FileName="Assets/Scripts/AlertState.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ChaseState.cs" Line="24" Column="38" />
-      <File FileName="Assets/Scripts/EnemyStates.cs" Line="23" Column="31" />
-      <File FileName="Assets/Scripts/FlashScreen.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Missile.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PlayerHealth.cs" Line="24" Column="37" />
-=======
-      <File FileName="Assets/Scripts/PatrolState.cs" Line="46" Column="1" />
-      <File FileName="Assets/Scripts/AttackState.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/AlertState.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ChaseState.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/EnemyStates.cs" Line="1" Column="1" />
->>>>>>> first-playable
+      <File FileName="Assets/Scripts/DeathScreen.cs" Line="10" Column="21" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="42" Column="28" />
+      <File FileName="Assets/Scripts/PlayerHealth.cs" Line="31" Column="23" />
+      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="49" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
